@@ -11,7 +11,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 @Service //Make this class a bean
-public class StudentService {//Service Layer
+public class StudentService {//Service Layer - there will be function that manipulates the Student Data
 
     private final StudentRepository studentRepository;
 
@@ -65,6 +65,5 @@ public class StudentService {//Service Layer
             }
             student.setEmail(email);
         }
-
     }
 }

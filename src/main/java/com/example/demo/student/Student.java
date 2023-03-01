@@ -10,16 +10,20 @@ import java.time.Period;
 public class Student {
 
     @Id //map student class to Table
-    @SequenceGenerator(
+    @SequenceGenerator( //Generate a sequence start at 1 and increment by 1
             name = "student_sequence",
             sequenceName = "student_sequence",
-            allocationSize = 1
+            allocationSize = 1 //ID increment by 1 everytime
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
             generator = "student_sequence"
     )
     private Long id;
+
+    @Column(
+            nullable = false //name column can't be null
+    )
     private String name;
 
     @Transient
@@ -77,9 +81,6 @@ public class Student {
         this.name = name;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
-    }
 
     public void setDob(LocalDate dob) {
         this.dob = dob;
